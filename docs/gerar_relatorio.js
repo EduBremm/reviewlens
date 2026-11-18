@@ -142,7 +142,7 @@ children.push(...TABLE("Identificação do projeto", "dados de capa exigidos pel
     ["Repositório", REPO],
     ["Dataset (fonte e licença)", "Reviews da Google Play de 15 apps de produtividade, coletadas com google-play-scraper (Valkov, 2020); espelho público no GitHub fixado no commit 0a25c92; sem licença explícita no espelho — uso acadêmico, sem dados pessoais"],
     ["Demonstração (vídeo/URL)", "https://drive.google.com/file/d/1iOHtOwXXQ-n4MrrVfy-lTfX4UWOH_NoX/view?usp=sharing"],
-    ["Data de entrega", "24/11/2026"],
+    ["Data de entrega", "18/11/2026"],
   ], [2800, 6838]));
 
 // ---------------- RESUMO ----------------
