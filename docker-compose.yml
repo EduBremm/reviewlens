@@ -1,0 +1,27 @@
+services:
+  api:
+    build: .
+    image: reviewlens:latest
+    command: uvicorn src.api.main:app --host 0.0.0.0 --port 8000
+    ports: ["8000:8000"]
+    volumes: ["./data:/app/data"]
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request;urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 15s
+      retries: 5
+  dashboard:
+    image: reviewlens:latest
+    command: streamlit run dashboard/app.py --server.port 8501 --server.address 0.0.0.0
+    environment: [API_URL=http://api:8000]
+    ports: ["8501:8501"]
+    volumes: ["./data:/app/data"]
+    depends_on: {api: {condition: service_healthy}}
+  mlflow:
+    image: reviewlens:latest
+    command: mlflow ui --backend-store-uri sqlite:///mlruns/mlflow.db --host 0.0.0.0 --port 5000
+    ports: ["5000:5000"]
+    volumes: ["./mlruns:/app/mlruns"]
+  app:   # utilitário: docker compose run app dvc repro
+    image: reviewlens:latest
+    profiles: [tools]
+    volumes: [".:/app"]

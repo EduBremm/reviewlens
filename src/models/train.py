@@ -135,9 +135,9 @@ def main() -> None:
 
     ablation = {}
     base_lr = fitted["logreg"]
-    for label, sw in [("sem_remocao_de_stopwords", None),
-                      ("stopwords_padrao_sklearn (remove 'not', 'no', 'never')", list(ENGLISH_STOP_WORDS)),
-                      ("stopwords_customizada (mantém negações) — adotada", list(STOPWORDS))]:
+    for label, sw in [("sem remoção de stopwords — adotada (iteração 2)", None),
+                      ("stopwords padrão sklearn (remove not/no/never)", list(ENGLISH_STOP_WORDS)),
+                      ("stopwords customizada (mantém negações) — iteração 1", list(STOPWORDS))]:
         est = clone(base_lr).set_params(tfidf__stop_words=sw)
         r = cross_validate(est, X, y, cv=cv, scoring={"f1_macro": "f1_macro",
                                                          "recall_neg": SCORING["recall_neg"]},
@@ -162,7 +162,8 @@ def main() -> None:
                 import mlflow.sklearn
 
                 mlflow.sklearn.log_model(model, name="model", registered_model_name="reviewlens-sentimento",
-                                         input_example=np.array(["great app"]))
+                                         serialization_format="cloudpickle",
+                                         code_paths=[str(ROOT / "src")])
             except Exception as exc:
                 print(f"[train] registro no Model Registry falhou: {exc}")
     print(f"[train] melhor modelo: {best} -> {MODEL_PATH} (limiar alerta NEG={alert_thr})")

@@ -1,0 +1,10 @@
+[run]
+source = src
+# scripts de etapa do pipeline: executados de ponta a ponta pelo `dvc repro` no CI
+omit =
+    src/models/train.py
+    src/models/evaluate.py
+    src/analysis/eda.py
+    src/analysis/clustering.py
+    src/analysis/load_db.py
+    src/viz.py

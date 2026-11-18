@@ -1,0 +1,81 @@
+{
+  "dist_label": {
+    "NEGATIVO": 0.4078,
+    "NEUTRO": 0.1621,
+    "POSITIVO": 0.4302
+  },
+  "mediana_palavras_por_classe": {
+    "NEGATIVO": 24.0,
+    "NEUTRO": 25.0,
+    "POSITIVO": 16.0
+  },
+  "neg_por_app": {
+    "HabitNow": 0.138,
+    "LifeRPG": 0.193,
+    "Artful Agenda": 0.261,
+    "Tasks": 0.351,
+    "CalClock": 0.406,
+    "TimeTune": 0.421,
+    "Habitica": 0.425,
+    "Todoist": 0.436,
+    "TickTick": 0.438,
+    "HabitBull": 0.448,
+    "Business Calendar": 0.449,
+    "Planner Pro": 0.452,
+    "Microsoft To Do": 0.454,
+    "Any.do": 0.454,
+    "Forest": 0.466
+  },
+  "spearman_score": {
+    "n_words": -0.15,
+    "chars": -0.158,
+    "thumbsUpCount": -0.174,
+    "exclamacoes": 0.111,
+    "maiusculas": -0.097,
+    "tem_versao": 0.212
+  },
+  "top_termos": {
+    "NEGATIVO": [
+      "app",
+      "time",
+      "use",
+      "just",
+      "dont",
+      "tasks",
+      "calendar",
+      "version",
+      "like",
+      "work",
+      "doesnt",
+      "premium"
+    ],
+    "NEUTRO": [
+      "app",
+      "like",
+      "time",
+      "good",
+      "tasks",
+      "task",
+      "just",
+      "use",
+      "calendar",
+      "dont",
+      "great",
+      "version"
+    ],
+    "POSITIVO": [
+      "app",
+      "great",
+      "like",
+      "love",
+      "good",
+      "use",
+      "tasks",
+      "really",
+      "time",
+      "day",
+      "just",
+      "task"
+    ]
+  }
+}

@@ -20,9 +20,12 @@ train:
   models: [dummy, vader, naive_bayes, svm, logreg, spacy_vectors_lr, hybrid_tfidf_vader]
 
 clustering:
-  k_min: 4
-  k_max: 10
-  svd_components: 100
+  # silhueta cresce de forma monotônica com k em texto curto; limitamos k a 12 grupos
+  # (legibilidade no dashboard) e escolhemos o k de maior silhueta nesse intervalo
+  k_min: 6
+  k_max: 12
+  min_words: 5
+  svd_components: 50
   max_features: 5000
 
 mlflow:

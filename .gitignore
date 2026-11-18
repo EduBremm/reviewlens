@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.coverage
+.ruff_cache/
+mlruns/
+.venv/
+/data/raw/reviews.csv
+/data/processed/*.parquet
+/data/reviewlens.db
+/models/model.joblib
+/models/clusters.joblib

@@ -14,13 +14,15 @@ from sklearn.pipeline import FeatureUnion, Pipeline
 from sklearn.preprocessing import StandardScaler
 from sklearn.svm import LinearSVC
 
-from src.features.text import STOPWORDS, clean_text
+from src.features.text import clean_text
 from src.features.transformers import SpacyVectorizer, VaderClassifier, VaderFeatures
 
 
 def tfidf(**kw) -> TfidfVectorizer:
+    # Iteração 2 do CRISP-DM: a ablação mostrou que remover stopwords piora o F1-macro
+    # (negações e "but" carregam sentimento). Por isso stop_words=None.
     base = dict(preprocessor=clean_text, ngram_range=(1, 2), min_df=2, max_df=0.95, sublinear_tf=True,
-                stop_words=list(STOPWORDS), token_pattern=r"(?u)\b\w\w+\b")
+                stop_words=None, token_pattern=r"(?u)\b\w\w+\b")
     base.update(kw)
     return TfidfVectorizer(**base)
 
@@ -54,7 +56,7 @@ def build_candidates(seed: int) -> dict:
             "Regressão Logística + TF-IDF",
             Pipeline([("tfidf", tfidf()),
                       ("clf", LogisticRegression(max_iter=2000, class_weight="balanced", random_state=seed))]),
-            {"tfidf__ngram_range": [(1, 1), (1, 2)], "clf__C": [0.5, 1.0, 2.0, 5.0]},
+            {"tfidf__ngram_range": [(1, 1), (1, 2)], "clf__C": [0.1, 0.25, 0.5, 1.0, 2.0, 5.0]},
         ),
         "spacy_vectors_lr": (
             "Pré-treinado: vetores de palavra spaCy (300d) + Regressão Logística",
@@ -66,6 +68,6 @@ def build_candidates(seed: int) -> dict:
             "Híbrido: TF-IDF + atributos VADER (pré-treinado) + Regressão Logística",
             Pipeline([("feats", FeatureUnion([("tfidf", tfidf()), ("vader", VaderFeatures())])),
                       ("clf", LogisticRegression(max_iter=3000, class_weight="balanced", random_state=seed))]),
-            {"feats__tfidf__ngram_range": [(1, 2)], "clf__C": [0.5, 1.0, 2.0]},
+            {"feats__tfidf__ngram_range": [(1, 2)], "clf__C": [0.25, 0.5, 1.0, 2.0]},
         ),
     }

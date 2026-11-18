@@ -1,0 +1,25 @@
+# núcleo de mineração
+numpy==2.5.3
+pandas==3.0.5
+pyarrow==26.0.1
+PyYAML==6.0.3
+scikit-learn==1.9.1
+joblib==1.6.0
+vaderSentiment==3.3.2
+spacy==3.8.18
+en_core_web_md @ https://github.com/explosion/spacy-models/releases/download/en_core_web_md-3.8.0/en_core_web_md-3.8.0-py3-none-any.whl
+matplotlib==3.11.2
+# produto
+fastapi==0.163.2
+uvicorn==0.54.0
+pydantic==2.13.5
+streamlit==1.67.0
+plotly==7.1.0
+requests==2.34.2
+# MLOps / qualidade
+mlflow==3.18.0
+dvc==3.67.1
+pytest==9.1.1
+pytest-cov==7.1.0
+httpx==0.28.1
+ruff==0.17.5

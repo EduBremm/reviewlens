@@ -1,0 +1,28 @@
+name: CI
+on:
+  push: {branches: [main]}
+  pull_request:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.13", cache: pip}
+      - run: pip install -r requirements.txt
+      - name: Lint
+        run: ruff check src tests dashboard
+      - name: Pipeline completo (download -> treino -> avaliação)
+        run: dvc repro
+      - name: Testes
+        run: pytest -q --cov=src --cov-report=term-missing --cov-fail-under=80
+      - name: Métricas (resumo no log)
+        run: dvc metrics show
+      - uses: actions/upload-artifact@v4
+        with: {name: reports, path: reports/}
+  docker:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build -t reviewlens:ci .

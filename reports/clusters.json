@@ -1,0 +1,356 @@
+{
+  "n_reviews_negativos": 4305,
+  "k_escolhido": 12,
+  "varredura_k": [
+    {
+      "k": 6,
+      "silhueta": 0.08435587216122915,
+      "davies_bouldin": 3.918286442553928
+    },
+    {
+      "k": 7,
+      "silhueta": 0.0912596067086576,
+      "davies_bouldin": 3.521289991223757
+    },
+    {
+      "k": 8,
+      "silhueta": 0.09669813096964629,
+      "davies_bouldin": 3.7758405934283203
+    },
+    {
+      "k": 9,
+      "silhueta": 0.10829533132929081,
+      "davies_bouldin": 3.6904607405973247
+    },
+    {
+      "k": 10,
+      "silhueta": 0.11737687542645994,
+      "davies_bouldin": 3.4342287643249323
+    },
+    {
+      "k": 11,
+      "silhueta": 0.12342127486735557,
+      "davies_bouldin": 3.381536190075886
+    },
+    {
+      "k": 12,
+      "silhueta": 0.13074405196288955,
+      "davies_bouldin": 3.235819520078637
+    }
+  ],
+  "variancia_explicada_svd": 0.1768,
+  "clusters": [
+    {
+      "cluster_id": 0,
+      "nome": "Configuração de horários / perda de tempo",
+      "top_termos": [
+        "time",
+        "waste",
+        "waste time",
+        "set",
+        "setting",
+        "change",
+        "day",
+        "reminder"
+      ],
+      "n": 296,
+      "pct": 6.9,
+      "apps_principais": {
+        "TimeTune": 35,
+        "CalClock": 32,
+        "Forest": 28
+      },
+      "exemplos": [
+        "Correct idea worng execution. The watch face UI cannont be operated like manually moving clock hands. The time zone stick moves at an interval of 1hr, I wanted to set it at any choosen time and add reminder from there. B",
+        "It doesn't ring the alarm at the right time. only when I open my phone, it starts ringing. useless for me because I want it to ring at the right time and remind me on my realme phone. Highly disappointed! :(",
+        "Incredible tool, awful app. I'd recommend the desktop version of this site to anyone but the app is a bug-ridden mess that overcomplicates simple functions and only works about 90% of the time."
+      ]
+    },
+    {
+      "cluster_id": 1,
+      "nome": "Falhas gerais (widget, sync, notificações)",
+      "top_termos": [
+        "task",
+        "list",
+        "phone",
+        "working",
+        "widget",
+        "day",
+        "notifications",
+        "sync"
+      ],
+      "n": 1202,
+      "pct": 27.9,
+      "apps_principais": {
+        "Microsoft To Do": 166,
+        "TimeTune": 125,
+        "Tasks": 114
+      },
+      "exemplos": [
+        "Got a new tablet which sync my notes fine after I uninstalled and signed back in. My new phone won't sync. On the app for my phone there is no place to sign out! Frustrating",
+        "Terrible!!! I'm not getting the pre alerts I set or the reminders themselves. I go in to check on upcoming reminders & see outdated ones in red that never alerted me!!",
+        "This app was perfectly fine before Microsoft got its hands on it, I used it for years for pretty much everything, it was perfect! Now I cant share lists with people unless they are in my organization, lists don't sync, o"
+      ]
+    },
+    {
+      "cluster_id": 2,
+      "nome": "Integração com Google Calendar",
+      "top_termos": [
+        "calendar",
+        "google",
+        "google calendar",
+        "events",
+        "sync",
+        "sync google",
+        "add",
+        "event"
+      ],
+      "n": 256,
+      "pct": 5.9,
+      "apps_principais": {
+        "CalClock": 88,
+        "Business Calendar": 69,
+        "Planner Pro": 34
+      },
+      "exemplos": [
+        "cool visual but doesn't work the way I thought it would. I don't like organizing my hour-by-hour tasks through my calendar because it clutters it up and makes me miss my important events. I wanted to use this app thinkin",
+        "No way to change the font size, so most of my events just display as \"Meeting wi...\" which is basically useless. Can't even click on the event to see, I have to go to a different calendar app to see what I have to do. Wh",
+        "Not the bloody annoying calendar/task widget thing again. You did this once before. I don't want to use your calendar, just the task list so please bring back the option of a widget without the calendar option written at"
+      ]
+    },
+    {
+      "cluster_id": 3,
+      "nome": "Conta e login",
+      "top_termos": [
+        "account",
+        "create",
+        "create account",
+        "sign",
+        "google",
+        "google account",
+        "let",
+        "microsoft"
+      ],
+      "n": 167,
+      "pct": 3.9,
+      "apps_principais": {
+        "Microsoft To Do": 34,
+        "Planner Pro": 30,
+        "HabitBull": 19
+      },
+      "exemplos": [
+        "After update, I couldn't log in to my Google account, the button Allow wasn't working. After applying the workaround and setting an email in web-version, my app on the phone requested permissions to my contacts. I allowe",
+        "good shared tasks, but app itself makes me angry.. it keeps forgetting i am logged in with my google account.. so I need to login for like each two weeks or so.. and it also forgets my settings... Edit: unfortunately thi",
+        "Developer is non-responsive. For some reason when downloading the app from the play store it associates with the incorrect Google account. I have verified I am downloading the app with my intended account, however it con"
+      ]
+    },
+    {
+      "cluster_id": 4,
+      "nome": "Recursos bloqueados na versão gratuita",
+      "top_termos": [
+        "pay",
+        "free",
+        "free version",
+        "version",
+        "features",
+        "habits",
+        "money",
+        "subscription"
+      ],
+      "n": 307,
+      "pct": 7.1,
+      "apps_principais": {
+        "Todoist": 76,
+        "TickTick": 37,
+        "Any.do": 36
+      },
+      "exemplos": [
+        "Seems like a good tool, but almost nothing that I actually need to do with it is possible without a subscription. I'd happily puchase the app, or do a free trial period, but honestly, it annoys me when companies offer a ",
+        "I really loved this app. I used it regularly and planting my forest really motivated me to keep going on. Unfortunately from the September update on almost all trees are behind a pay wall now. I understand you cannot do ",
+        "ANNOYED paid for this years ago PAID full version and used it and recommended it! Now I am asked to pay YEARLY to remove ads! what joke! I paid for full add free version already and there is nothing new to justify the ye"
+      ]
+    },
+    {
+      "cluster_id": 5,
+      "nome": "Problemas após atualização",
+      "top_termos": [
+        "update",
+        "new",
+        "new update",
+        "recent",
+        "recent update",
+        "latest",
+        "fix",
+        "latest update"
+      ],
+      "n": 208,
+      "pct": 4.8,
+      "apps_principais": {
+        "Forest": 44,
+        "Todoist": 23,
+        "TickTick": 20
+      },
+      "exemplos": [
+        "It used to be a really great app but then the problem arrive. It told me to update to latest version to see a new species but it was the worst update that could be ever made. With the new update , most of the good lookin",
+        "I upgraded to Pro after a couple of weeks & initially excited about the app. Having used it for a while now I'm starting to regret my purchase. There are some pros but more cons. It's buggy, doesn't sync well at all acro",
+        "I really enjoyed using this app until the September update forced all free users behind a paywall with just a few basic options. In consideration of the pandemic and many folks enjoy the simplicity of this focus app whil"
+      ]
+    },
+    {
+      "cluster_id": 6,
+      "nome": "Tarefas recorrentes / concluídas",
+      "top_termos": [
+        "tasks",
+        "task",
+        "completed",
+        "day",
+        "list",
+        "time",
+        "daily",
+        "recurring"
+      ],
+      "n": 310,
+      "pct": 7.2,
+      "apps_principais": {
+        "Microsoft To Do": 58,
+        "Todoist": 44,
+        "TickTick": 42
+      },
+      "exemplos": [
+        "Had high hopes for this because it had everything I wanted but the completed tasks that I keep putting as completed come back the next day which is just irritating. Have tried all the settings to get of it but I can't an",
+        "My rating is just based on my needs. The app says it has recurring tasks, it does not. It does have recurring reminders for \"on going\" tasks which may be useful in certain applications. The result of which being if you c",
+        "This is one of the best apps, one of the best features is that it announces the activity name...... Edit: Hi, the app was doing well! And was planning to buy the paid version. But i am getting errors with background task"
+      ]
+    },
+    {
+      "cluster_id": 7,
+      "nome": "Assinatura premium e suporte",
+      "top_termos": [
+        "premium",
+        "subscription",
+        "features",
+        "buy",
+        "support",
+        "money",
+        "paid",
+        "premium version"
+      ],
+      "n": 380,
+      "pct": 8.8,
+      "apps_principais": {
+        "HabitBull": 105,
+        "Todoist": 60,
+        "Any.do": 49
+      },
+      "exemplos": [
+        "It seems like this app is no longer supported. I've paid for premium, but sync stopped working several months ago, and developers have not replied to a support request. So - on moving to a new phone - my habits and strea",
+        "I love this app, but I do have one major gripe - I want an option to buy premium once (even at a higher price) and not as a monthly or yearly subscription. Edit - very unhappy with developer response to pricing. I want t",
+        "The app hasn't synced for nearly 9 months despite being a premium user. The support team haven't acknowledged my email. It's a good concept but they've failed to make it work and don't provide customer support. Check oth"
+      ]
+    },
+    {
+      "cluster_id": 8,
+      "nome": "Versão Pro paga (Forest)",
+      "top_termos": [
+        "pro",
+        "version",
+        "pro version",
+        "buy",
+        "buy pro",
+        "trees",
+        "paid",
+        "paid pro"
+      ],
+      "n": 186,
+      "pct": 4.3,
+      "apps_principais": {
+        "Forest": 76,
+        "TimeTune": 34,
+        "Business Calendar": 26
+      },
+      "exemplos": [
+        "it is extremely disappointing that most of the trees now fall under the pro version and the developer is basically forcing the free users to buy the pro version and pay money,, and it's not like I didn't contribute to th",
+        "The new update is worse. I used to love it but the new interface is not at all good. Almost 60% of the trees are now in the pro version, which leave almost nothing for the non pro version users. And the trees look very s",
+        "This app has definitely helped me put my phone down, but you peak fairly quickly in the unpaid version and run out of rewards. After using it for six months, I've run out of trees and plants to purchase, so there's not m"
+      ]
+    },
+    {
+      "cluster_id": 9,
+      "nome": "Anúncios invasivos",
+      "top_termos": [
+        "ads",
+        "screen",
+        "annoying",
+        "calendar",
+        "years",
+        "screen ads",
+        "ad",
+        "started"
+      ],
+      "n": 175,
+      "pct": 4.1,
+      "apps_principais": {
+        "Business Calendar": 136,
+        "Planner Pro": 12,
+        "LifeRPG": 6
+      },
+      "exemplos": [
+        "I am going to drop this app after years of use because of recent full page video ads which are out of control. Edited to add: of course the free version has ads. Always has, and I don't mind, because *something* has to p",
+        "Used this calendar for years without any issue. Now ads will take over the entire screen after entering an appointment in the calendar and there is a delay before you can cancel them out. Terrible and disappointing choic",
+        "Resonse (2/13/20): I know that the free version is not ad-free.  The issue that what you have done recently is to force people to watch ads instead of just clicking them away. And this happens while I'm trying to add or "
+      ]
+    },
+    {
+      "cluster_id": 10,
+      "nome": "Pedidos de correção e usabilidade",
+      "top_termos": [
+        "fix",
+        "try",
+        "change",
+        "screen",
+        "start",
+        "idea",
+        "lot",
+        "let"
+      ],
+      "n": 574,
+      "pct": 13.3,
+      "apps_principais": {
+        "Habitica": 170,
+        "Forest": 59,
+        "Planner Pro": 50
+      },
+      "exemplos": [
+        "1) If I want to be in leaderboard, I need to give the app permission to all of my private things. No thanks. 2) The achievements always show there's a new achievement unlocked, but there's actually none. This bug is ofte",
+        "I tried to explore it a little after downloading, I want something that will show me everything planned on the day I have notes on rather than me having to search if I do, i tend to forget due to busy schedules. I want a",
+        "Great concept, but unfortunately have to uninstall as it's a data privacy risk. Our firewall detected (and blocked) hundreds of attempts to servers in China when the app was sitting open but idle. For its function, this "
+      ]
+    },
+    {
+      "cluster_id": 11,
+      "nome": "Lembretes/notificações que não funcionam",
+      "top_termos": [
+        "work",
+        "does work",
+        "does",
+        "reminder",
+        "reminders",
+        "notifications",
+        "android",
+        "day"
+      ],
+      "n": 244,
+      "pct": 5.7,
+      "apps_principais": {
+        "Habitica": 31,
+        "HabitBull": 30,
+        "TimeTune": 28
+      },
+      "exemplos": [
+        "at the beginning was good but i wait two months later and the app keep putting back as not done reminders that i mark as done already and the other task that have date and mark as priority don't even showed me, if you ca",
+        "Sync DOES NOT work! I've tried multiple times to get it to work and my internet connection is just fine. Had to switch phones when my old phone died and can't get my old data back on the app because sync doesn't work. Al",
+        "Bring back Wunderlist! This app has failed to link lists over and over. We find ourselves trying to relink lists, but it still doesn't work. Since this has changed from Wunderlist, it's a huge disappointment. Find a bett"
+      ]
+    }
+  ]
+}

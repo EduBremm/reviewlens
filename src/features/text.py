@@ -57,3 +57,17 @@ def major_version(version: str | None) -> str | None:
     if not parts:
         return None
     return ".".join(parts[:2]) if len(parts) > 1 else parts[0]
+
+
+APP_NAMES = {
+    "com.anydo": "Any.do", "com.todoist": "Todoist", "com.ticktick.task": "TickTick",
+    "com.habitrpg.android.habitica": "Habitica", "cc.forestapp": "Forest", "com.oristats.habitbull": "HabitBull",
+    "com.microsoft.todos": "Microsoft To Do", "com.gmail.jmartindev.timetune": "TimeTune",
+    "com.appgenix.bizcal": "Business Calendar", "com.appxy.planner": "Planner Pro", "prox.lab.calclock": "CalClock",
+    "com.tasks.android": "Tasks", "com.levor.liferpgtasks": "LifeRPG", "com.habitnow": "HabitNow",
+    "com.artfulagenda.app": "Artful Agenda",
+}
+
+
+def app_display_name(app_id: str) -> str:
+    return APP_NAMES.get(app_id, str(app_id).split(".")[-1])

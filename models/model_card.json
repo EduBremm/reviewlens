@@ -1,0 +1,28 @@
+{
+  "modelo": "logreg",
+  "descricao": "Regressão Logística + TF-IDF",
+  "versao": "202611181222-db8929a",
+  "git_sha": "db8929a",
+  "seed": 42,
+  "classes": [
+    "NEGATIVO",
+    "NEUTRO",
+    "POSITIVO"
+  ],
+  "n_treino": 9211,
+  "params": {
+    "clf__C": "0.5",
+    "tfidf__ngram_range": "(1, 2)"
+  },
+  "cv": {
+    "f1_macro": 0.6388,
+    "accuracy": 0.6982,
+    "balanced_accuracy": 0.6422,
+    "roc_auc_ovr": 0.8351,
+    "recall_neg": 0.7404,
+    "recall_neu": 0.4253,
+    "recall_pos": 0.761
+  },
+  "treinado_em": "2026-11-18T12:22:44.594274+00:00",
+  "limiar_alerta_negativo": 0.25
+}

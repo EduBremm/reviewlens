@@ -14,7 +14,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 
 from src.config import DATA_PROCESSED, REPORTS_DIR, ROOT, ensure_dirs, params
-from src.features.text import clean_text, major_version, score_to_label
+from src.features.text import app_display_name, clean_text, major_version, score_to_label
 
 KEEP = ["reviewId", "appId", "content", "score", "thumbsUpCount", "reviewCreatedVersion", "at"]
 
@@ -42,7 +42,7 @@ def prepare(df: pd.DataFrame, cfg: dict) -> tuple[pd.DataFrame, dict]:
     df["month"] = df["at"].dt.to_period("M").astype(str)
     df["version_major"] = df["reviewCreatedVersion"].map(major_version)
     df["n_words"] = df["content"].str.split().map(len)
-    df["app_name"] = df["appId"].str.split(".").str[-1]
+    df["app_name"] = df["appId"].map(app_display_name)
     log["saida"] = len(df)
     return df.reset_index(drop=True), log
 

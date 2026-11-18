@@ -1,0 +1,224 @@
+schema: '2.0'
+stages:
+  download:
+    cmd: python -m src.data.download
+    deps:
+    - path: src/data/download.py
+      hash: md5
+      md5: 4612ee402ed30f0eedc7ea881feb78f7
+      size: 1097
+    params:
+      params.yaml:
+        data.sha256: 
+          3e7ad9245827e52372e85a7ff541b57e80aeeca7c361834a65cf42cea8a5865c
+        data.url: 
+          https://raw.githubusercontent.com/kavyasri0804/Sentiment-Analysis-on-Google-Play-Store-Data-using-NLP/0a25c92bcd58592a1ea83351a04b96f0689b26c8/reviews.csv
+    outs:
+    - path: data/raw/reviews.csv
+      hash: md5
+      md5: fd046749be820b3fbf88bd6351ecdb20
+      size: 6451055
+  validate:
+    cmd: python -m src.data.validate
+    deps:
+    - path: data/raw/reviews.csv
+      hash: md5
+      md5: fd046749be820b3fbf88bd6351ecdb20
+      size: 6451055
+    - path: src/data/validate.py
+      hash: md5
+      md5: c681474624cfa66a185f9330b72a1c75
+      size: 3875
+    outs:
+    - path: reports/quality.json
+      hash: md5
+      md5: 782e0a9bd14acadd93054eaec553cdfd
+      size: 1442
+  build_features:
+    cmd: python -m src.features.build
+    deps:
+    - path: data/raw/reviews.csv
+      hash: md5
+      md5: fd046749be820b3fbf88bd6351ecdb20
+      size: 6451055
+    - path: src/features/build.py
+      hash: md5
+      md5: f2960c407f49e3a399d35c439b598145
+      size: 3143
+    - path: src/features/text.py
+      hash: md5
+      md5: b40d6b1b562d5be6430bdaed7ba98dc9
+      size: 2915
+    params:
+      params.yaml:
+        features:
+          label_map:
+            1: NEGATIVO
+            2: NEGATIVO
+            3: NEUTRO
+            4: POSITIVO
+            5: POSITIVO
+          min_chars: 3
+          test_size: 0.2
+        seed: 42
+    outs:
+    - path: data/processed/reviews_clean.parquet
+      hash: md5
+      md5: 9f9f0e4d9862326384cbee109c355218
+      size: 3315466
+    - path: data/processed/test.parquet
+      hash: md5
+      md5: 4822232d209148c8c24e867c392a6f41
+      size: 700669
+    - path: data/processed/train.parquet
+      hash: md5
+      md5: 60482a1b40d6ec5a67de2f9d827c5855
+      size: 2739504
+    - path: reports/preparation.json
+      hash: md5
+      md5: f783fc92fee272bd1406b5c2a2c774e4
+      size: 391
+  eda:
+    cmd: python -m src.analysis.eda
+    deps:
+    - path: data/processed/reviews_clean.parquet
+      hash: md5
+      md5: 9f9f0e4d9862326384cbee109c355218
+      size: 3315466
+    - path: src/analysis/eda.py
+      hash: md5
+      md5: 4423ac0307170f9b6b8e4da3b0def5ea
+      size: 5684
+    outs:
+    - path: reports/eda.json
+      hash: md5
+      md5: 6ff3c3a95804deec7b67d03c0c69c206
+      size: 1371
+  train:
+    cmd: python -m src.models.train
+    deps:
+    - path: data/processed/train.parquet
+      hash: md5
+      md5: 60482a1b40d6ec5a67de2f9d827c5855
+      size: 2739504
+    - path: src/features/text.py
+      hash: md5
+      md5: b40d6b1b562d5be6430bdaed7ba98dc9
+      size: 2915
+    - path: src/features/transformers.py
+      hash: md5
+      md5: bc0ac0efa7ebb5275c13489b028a395f
+      size: 2629
+    - path: src/models/candidates.py
+      hash: md5
+      md5: e6a1acd776ad74d0d9df50b34f59c8fc
+      size: 3555
+    - path: src/models/train.py
+      hash: md5
+      md5: 451713a8148f5101f9366a59ae9751df
+      size: 8365
+    params:
+      params.yaml:
+        seed: 42
+        train:
+          cv_folds: 5
+          scoring: f1_macro
+          n_jobs: -1
+          models:
+          - dummy
+          - vader
+          - naive_bayes
+          - svm
+          - logreg
+          - spacy_vectors_lr
+          - hybrid_tfidf_vader
+    outs:
+    - path: models/model.joblib
+      hash: md5
+      md5: f65721251c798f1039e0949cc42ec97f
+      size: 1415732
+    - path: models/model_card.json
+      hash: md5
+      md5: 5fd56fc61954e46aa9c944a3d5e25521
+      size: 593
+    - path: reports/cv_results.json
+      hash: md5
+      md5: 4966d1ebdc1e4891e631af10835e5767
+      size: 8866
+  evaluate:
+    cmd: python -m src.models.evaluate
+    deps:
+    - path: data/processed/test.parquet
+      hash: md5
+      md5: 4822232d209148c8c24e867c392a6f41
+      size: 700669
+    - path: models/model.joblib
+      hash: md5
+      md5: f65721251c798f1039e0949cc42ec97f
+      size: 1415732
+    - path: src/models/evaluate.py
+      hash: md5
+      md5: e32067370eb2676c3cddf9bdbf3d177e
+      size: 11135
+    outs:
+    - path: reports/metrics.json
+      hash: md5
+      md5: b349cf1bc717443574224f77e4283641
+      size: 7799
+  clustering:
+    cmd: python -m src.analysis.clustering
+    deps:
+    - path: data/processed/reviews_clean.parquet
+      hash: md5
+      md5: 9f9f0e4d9862326384cbee109c355218
+      size: 3315466
+    - path: src/analysis/clustering.py
+      hash: md5
+      md5: 375d4bc384ee3cdc8b958e6de1bf3495
+      size: 7902
+    params:
+      params.yaml:
+        clustering:
+          k_min: 6
+          k_max: 12
+          min_words: 5
+          svd_components: 50
+          max_features: 5000
+        seed: 42
+    outs:
+    - path: data/processed/neg_clusters.parquet
+      hash: md5
+      md5: 07cf12e364bb54f5375b473f233a4bd5
+      size: 376946
+    - path: models/clusters.joblib
+      hash: md5
+      md5: b81edb1371cd690161390f58461168e5
+      size: 1000645
+    - path: reports/clusters.json
+      hash: md5
+      md5: 1572a6942fd6d80bea56d86c5d499314
+      size: 14345
+  load_db:
+    cmd: python -m src.analysis.load_db
+    deps:
+    - path: data/processed/neg_clusters.parquet
+      hash: md5
+      md5: 07cf12e364bb54f5375b473f233a4bd5
+      size: 376946
+    - path: models/model.joblib
+      hash: md5
+      md5: f65721251c798f1039e0949cc42ec97f
+      size: 1415732
+    - path: src/analysis/load_db.py
+      hash: md5
+      md5: 575aa682d5a751cd202a5f802cce81c7
+      size: 1900
+    - path: src/db.py
+      hash: md5
+      md5: bca28ad98dd0ff97d07052161886688d
+      size: 2724
+    outs:
+    - path: data/reviewlens.db
+      hash: md5
+      md5: 4525920e268ede2562a1882778051980
+      size: 6000640
