@@ -1,0 +1,76 @@
+{
+  "linhas": 12495,
+  "colunas": 12,
+  "apps": 15,
+  "periodo": [
+    "2015-02-08",
+    "2020-10-28"
+  ],
+  "ausentes_pct": {
+    "reviewId": 0.0,
+    "userName": 0.0,
+    "userImage": 0.0,
+    "content": 0.0,
+    "score": 0.0,
+    "thumbsUpCount": 0.0,
+    "reviewCreatedVersion": 17.3,
+    "at": 0.0,
+    "replyContent": 53.44,
+    "repliedAt": 53.44,
+    "sortOrder": 0.0,
+    "appId": 0.0
+  },
+  "reviewId_duplicado": 0,
+  "texto_duplicado": 758,
+  "textos_duplicados_com_notas_diferentes": 108,
+  "texto_vazio_ou_curto_lt3": 51,
+  "comprimento_texto": {
+    "count": 12495.0,
+    "mean": 147.8,
+    "std": 152.6,
+    "min": 1.0,
+    "25%": 37.0,
+    "50%": 97.0,
+    "75%": 211.0,
+    "max": 4076.0
+  },
+  "outliers_comprimento_iqr": {
+    "limite_superior": 472.0,
+    "qtd": 652,
+    "pct": 5.22
+  },
+  "distribuicao_score": {
+    "1": 2506,
+    "2": 2344,
+    "3": 1991,
+    "4": 2775,
+    "5": 2879
+  },
+  "colunas_pii": [
+    "userName",
+    "userImage"
+  ],
+  "colunas_com_vazamento": [
+    "replyContent",
+    "repliedAt"
+  ],
+  "reviews_por_ano": {
+    "2015": 25,
+    "2016": 280,
+    "2017": 302,
+    "2018": 576,
+    "2019": 1887,
+    "2020": 9425
+  },
+  "versao_ausente_pct": 17.3,
+  "nao_ascii_pct": 6.62,
+  "media_palavras": 27.7,
+  "media_palavras_por_score": {
+    "1": 28.0,
+    "2": 35.5,
+    "3": 32.5,
+    "4": 26.7,
+    "5": 18.5
+  },
+  "sha256": "3e7ad9245827e52372e85a7ff541b57e80aeeca7c361834a65cf42cea8a5865c"
+}

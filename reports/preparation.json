@@ -1,0 +1,20 @@
+{
+  "entrada": 12495,
+  "apos_remover_curtos": 12444,
+  "removidos_rotulo_ambiguo": 246,
+  "apos_deduplicar": 11600,
+  "apos_limpeza": 11514,
+  "saida": 11514,
+  "treino": 9211,
+  "teste": 2303,
+  "dist_label_treino": {
+    "POSITIVO": 0.4301,
+    "NEGATIVO": 0.4078,
+    "NEUTRO": 0.1621
+  },
+  "dist_label_teste": {
+    "POSITIVO": 0.4303,
+    "NEGATIVO": 0.4077,
+    "NEUTRO": 0.162
+  }
+}

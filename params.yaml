@@ -1,0 +1,30 @@
+seed: 42
+
+data:
+  # Espelho público (GitHub) do dataset de reviews da Google Play coletado com google-play-scraper.
+  # URL fixada em um commit para que o arquivo nunca mude por baixo do pipeline.
+  url: https://raw.githubusercontent.com/kavyasri0804/Sentiment-Analysis-on-Google-Play-Store-Data-using-NLP/0a25c92bcd58592a1ea83351a04b96f0689b26c8/reviews.csv
+  sha256: 3e7ad9245827e52372e85a7ff541b57e80aeeca7c361834a65cf42cea8a5865c
+  raw_path: data/raw/reviews.csv
+
+features:
+  # estrelas -> sentimento (rótulo fraco, ver relatório seção 1.3)
+  label_map: {1: NEGATIVO, 2: NEGATIVO, 3: NEUTRO, 4: POSITIVO, 5: POSITIVO}
+  min_chars: 3
+  test_size: 0.2
+
+train:
+  cv_folds: 5
+  scoring: f1_macro
+  n_jobs: -1
+  models: [dummy, vader, naive_bayes, svm, logreg, spacy_vectors_lr, hybrid_tfidf_vader]
+
+clustering:
+  k_min: 4
+  k_max: 10
+  svd_components: 100
+  max_features: 5000
+
+mlflow:
+  tracking_uri: mlruns
+  experiment: reviewlens-sentimento
