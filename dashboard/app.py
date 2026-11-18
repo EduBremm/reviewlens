@@ -91,6 +91,8 @@ with tabs[2]:
                      title="Versões com maior insatisfação (% negativo)", hover_data=["n", "nota_media", "primeira_review"],
                      labels={"pct_negativo": "% negativo", "rotulo": ""}, color_discrete_sequence=[COLORS["NEGATIVO"]])
         fig.update_xaxes(tickformat=".0%")
+        fig.update_yaxes(tickmode="linear")
+        fig.update_layout(height=40 + 28 * len(v))
         st.plotly_chart(fig, use_container_width=True)
         st.dataframe(v.drop(columns="rotulo"), use_container_width=True, hide_index=True)
 

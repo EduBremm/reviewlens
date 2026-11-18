@@ -118,8 +118,8 @@
     "f1_macro": true,
     "roc_auc_ovr": true,
     "ganho_f1_vs_vader_pp": true,
-    "recall_neg_alerta": "True",
-    "precisao_neg_alerta": "True"
+    "recall_neg_alerta": true,
+    "precisao_neg_alerta": true
   },
   "erros": {
     "acuracia_por_tamanho": [

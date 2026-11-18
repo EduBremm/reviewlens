@@ -158,13 +158,13 @@ stages:
       size: 1415732
     - path: src/models/evaluate.py
       hash: md5
-      md5: e32067370eb2676c3cddf9bdbf3d177e
-      size: 11135
+      md5: b76273822dc554c18c9efa87431e1f40
+      size: 11147
     outs:
     - path: reports/metrics.json
       hash: md5
-      md5: b349cf1bc717443574224f77e4283641
-      size: 7799
+      md5: 16cdc729ee6a439f02be1c00389def95
+      size: 7795
   clustering:
     cmd: python -m src.analysis.clustering
     deps:
@@ -205,10 +205,18 @@ stages:
       hash: md5
       md5: 07cf12e364bb54f5375b473f233a4bd5
       size: 376946
+    - path: data/processed/reviews_clean.parquet
+      hash: md5
+      md5: 9f9f0e4d9862326384cbee109c355218
+      size: 3315466
     - path: models/model.joblib
       hash: md5
       md5: f65721251c798f1039e0949cc42ec97f
       size: 1415732
+    - path: reports/clusters.json
+      hash: md5
+      md5: 1572a6942fd6d80bea56d86c5d499314
+      size: 14345
     - path: src/analysis/load_db.py
       hash: md5
       md5: 575aa682d5a751cd202a5f802cce81c7
@@ -220,5 +228,5 @@ stages:
     outs:
     - path: data/reviewlens.db
       hash: md5
-      md5: 4525920e268ede2562a1882778051980
-      size: 6000640
+      md5: 97a019f14a7e3a4120dae67aeeed45d3
+      size: 6086656
