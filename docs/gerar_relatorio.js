@@ -132,7 +132,7 @@ children.push(
   new Paragraph({ spacing: { after: 900 }, alignment: AlignmentType.CENTER,
     children: [new TextRun({ text: "Tema 9 — Mineração de Sentimentos em Reviews de Aplicativos", font: FONT, size: 26 })] }),
 );
-children.push(...TABLE("Identificação do projeto", "dados de capa exigidos pelo modelo; links do repositório e do vídeo devem ser conferidos antes da entrega.",
+children.push(...TABLE("Identificação do projeto", "dados de capa exigidos pelo modelo, com links do repositório e do vídeo de demonstração.",
   ["Campo", "Preenchimento"],
   [
     ["Tema (nº e título)", "9 — Mineração de Sentimentos em Reviews de Aplicativos"],
@@ -141,7 +141,7 @@ children.push(...TABLE("Identificação do projeto", "dados de capa exigidos pel
     ["Disciplina / professor", "Engenharia de Software — Projetos Práticos (Mineração de Dados) / Prof. Franco"],
     ["Repositório", REPO],
     ["Dataset (fonte e licença)", "Reviews da Google Play de 15 apps de produtividade, coletadas com google-play-scraper (Valkov, 2020); espelho público no GitHub fixado no commit 0a25c92; sem licença explícita no espelho — uso acadêmico, sem dados pessoais"],
-    ["Demonstração (vídeo/URL)", "[link do vídeo de 3 a 5 min — inserir após gravação]"],
+    ["Demonstração (vídeo/URL)", "https://drive.google.com/file/d/1iOHtOwXXQ-n4MrrVfy-lTfX4UWOH_NoX/view?usp=sharing"],
     ["Data de entrega", "24/11/2026"],
   ], [2800, 6838]));
 
@@ -547,7 +547,7 @@ children.push(H2("9.2 Roteiro da demonstração (3 a 5 minutos)"));
   "**CI (20 s):** pipeline verde no GitHub Actions com as métricas no log.",
 ].forEach((t) => children.push(NUM(t)));
 children.push(H2("9.3 Link"));
-children.push(P(`Repositório: ${REPO}. Vídeo de demonstração: [inserir link do YouTube não listado ou Google Drive após a gravação].`));
+children.push(P(`Repositório: ${REPO}. Vídeo de demonstração (2min53, Google Drive): https://drive.google.com/file/d/1iOHtOwXXQ-n4MrrVfy-lTfX4UWOH_NoX/view?usp=sharing. O vídeo percorre o roteiro da seção 9.2 com o sistema em execução e legendas explicativas.`));
 
 // ---------------- 10 ----------------
 children.push(H1("10. Conclusões, limitações e trabalhos futuros"));

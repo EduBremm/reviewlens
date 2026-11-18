@@ -13,6 +13,8 @@ frequentes e versões com maior insatisfação.
 | Modelos comparados | Dummy, VADER (pré-treinado), Naive Bayes, SVM, Regressão Logística, vetores spaCy (pré-treinados) + LR, híbrido TF-IDF+VADER |
 | Modelo final | Regressão Logística + TF-IDF (1–2 gramas) |
 | Teste (20%, seed 42) | **F1-macro 0,622 · ROC-AUC 0,821 · acurácia 0,681** (VADER: F1 0,472) |
+| Vídeo de demonstração | https://drive.google.com/file/d/1iOHtOwXXQ-n4MrrVfy-lTfX4UWOH_NoX/view?usp=sharing |
+| Relatório | `docs/Relatorio_ReviewLens_Tema9_EduardoBremm.pdf` (e .docx) |
 | Produto | API FastAPI + SQLite + dashboard Streamlit; MLflow + DVC; Docker; GitHub Actions |
 
 ## Como reproduzir
