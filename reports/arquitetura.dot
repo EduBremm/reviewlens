@@ -1,0 +1,16 @@
+digraph G {
+  rankdir=LR; fontname="Helvetica"; node [shape=box, style="rounded,filled", fontname="Helvetica", fontsize=11, color="#52514e", fillcolor="#ffffff"]; edge [color="#52514e", fontname="Helvetica", fontsize=9];
+  subgraph cluster_train { label="Treino (dvc repro)"; style="rounded,filled"; fillcolor="#eef4fc"; color="#9ec5f4"; fontsize=12;
+    src [label="GitHub raw\n(CSV fixado por commit\n+ SHA-256)", fillcolor="#f0efec"];
+    ing [label="download\nvalidate"]; prep [label="build_features\n(limpeza, rótulo,\nsplit 80/20)"]; tr [label="train\n(GridSearch + CV 5x)\n7 candidatos"]; ev [label="evaluate\n(teste 1x)"]; cl [label="clustering\n(K-Means\nreclamações)"]; ld [label="load_db"];
+    mlf [label="MLflow\nruns + Model Registry", fillcolor="#fdf0e8"];
+    src -> ing -> prep -> tr -> ev; prep -> cl; tr -> ld; cl -> ld; tr -> mlf [style=dashed];
+  }
+  subgraph cluster_use { label="Uso (a cada consulta)"; style="rounded,filled"; fillcolor="#eefaf4"; color="#9be0c4"; fontsize=12;
+    user [label="Equipe de produto\n(PM, suporte)", shape=ellipse, fillcolor="#f0efec"];
+    dash [label="Dashboard\nStreamlit"]; api [label="API FastAPI\n/predict, /insights/*"]; db [label="SQLite\nreviews · predictions\ncomplaint_clusters", shape=cylinder];
+    art [label="models/\nmodel.joblib\nclusters.joblib\nmodel_card.json", shape=folder];
+    user -> dash -> api; api -> db [label="grava predição\n+ versão do modelo"]; dash -> db [label="lê indicadores"]; art -> api [label="carrega na subida"];
+  }
+  ld -> db [style=dashed]; tr -> art [style=dashed]; cl -> art [style=dashed];
+}

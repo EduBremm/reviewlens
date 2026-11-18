@@ -39,4 +39,4 @@ stages:
     cmd: python -m src.analysis.load_db
     deps: [src/analysis/load_db.py, src/db.py, models/model.joblib, data/processed/reviews_clean.parquet,
            data/processed/neg_clusters.parquet, reports/clusters.json]
-    outs: [data/reviewlens.db]
+    outs: [{data/reviewlens.db: {persist: true, cache: false}}]  # persist: não apaga o histórico de predições
